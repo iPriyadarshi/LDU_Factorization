@@ -128,7 +128,7 @@ td {
     text-align: left;
 }
 ```
-##### JavaScript (`script.js`)
+#### JavaScript (`script.js`)
 Handles the logic for generating the matrix, performing the factorization, and displaying the results.
 
 ```javascript
