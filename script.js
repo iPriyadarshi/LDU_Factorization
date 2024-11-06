@@ -2,8 +2,8 @@ function generateMatrix() {
     const n = parseInt(document.getElementById('matrixSize').value);
     let html = '<div class="matrix">';
     
-    for(let i = 0; i < n; i++) {
-        for(let j = 0; j < n; j++) {
+    for(let i = 1; i <= n; i++) {
+        for(let j = 1; j <= n; j++) {
             html += `<input type="number" class="matrix-cell" id="cell_${i}_${j}" value="0">`;
         }
         html += '<br>';
@@ -21,14 +21,14 @@ function factorizeLDU() {
     let steps = [];
 
     // Initialize matrices
-    for(let i = 0; i < n; i++) {
+    for(let i = 1; i <= n; i++) {
         A[i] = [];
-        L[i] = Array(n).fill(0);
-        D[i] = Array(n).fill(0);
-        U[i] = Array(n).fill(0);
+        L[i] = Array(n + 1).fill(0);
+        D[i] = Array(n + 1).fill(0);
+        U[i] = Array(n + 1).fill(0);
         L[i][i] = 1;
         U[i][i] = 1;
-        for(let j = 0; j < n; j++) {
+        for(let j = 1; j <= n; j++) {
             A[i][j] = parseFloat(document.getElementById(`cell_${i}_${j}`).value);
         }
     }
@@ -39,10 +39,10 @@ function factorizeLDU() {
     });
 
     // LDU Factorization
-    for(let k = 0; k < n; k++) {
+    for(let k = 1; k <= n; k++) {
         D[k][k] = A[k][k];
         
-        for(let i = k + 1; i < n; i++) {
+        for(let i = k + 1; i <= n; i++) {
             L[i][k] = A[i][k] / A[k][k];
             steps.push({
                 step: `Computing L[${i}][${k}] = A[${i}][${k}]/A[${k}][${k}] = ${L[i][k]}`,
@@ -50,7 +50,7 @@ function factorizeLDU() {
             });
         }
 
-        for(let j = k + 1; j < n; j++) {
+        for(let j = k + 1; j <= n; j++) {
             U[k][j] = A[k][j] / A[k][k];
             steps.push({
                 step: `Computing U[${k}][${j}] = A[${k}][${j}]/A[${k}][${k}] = ${U[k][j]}`,
@@ -58,8 +58,8 @@ function factorizeLDU() {
             });
         }
 
-        for(let i = k + 1; i < n; i++) {
-            for(let j = k + 1; j < n; j++) {
+        for(let i = k + 1; i <= n; i++) {
+            for(let j = k + 1; j <= n; j++) {
                 A[i][j] = A[i][j] - L[i][k] * D[k][k] * U[k][j];
             }
         }
@@ -96,8 +96,8 @@ function displayMatrix(label, matrix) {
     let html = `<div class="matrix">
         <div class="matrix-label">${label}:</div>`;
     
-    for(let i = 0; i < matrix.length; i++) {
-        for(let j = 0; j < matrix[0].length; j++) {
+    for(let i = 1; i < matrix.length; i++) {
+        for(let j = 1; j < matrix[i].length; j++) {
             html += `<span class="matrix-cell">${matrix[i][j].toFixed(2)}</span>`;
         }
         html += '<br>';
