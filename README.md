@@ -3,6 +3,8 @@
 ### Overview
 This project provides a web-based tool to perform LDU (Lower-Diagonal-Upper) factorization of an n\*n matrix. The application is built using HTML, CSS, and JavaScript, and it allows users to input a matrix, visualize the steps of the factorization process, and see the resulting L, D, and U matrices.
 
+![LDU Factorization](https://github.com/iPriyadarshi/LDU_Factorization/blob/main/ldu-factorization.png)
+
 ### Features
 - **Matrix Input**: Dynamically generate a matrix input form based on user-defined matrix size.
 
