@@ -15,7 +15,7 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/priyadarshi-1505/LDU_factorization.git
+git clone https://github.com/iPriyadarshi/LDU_factorization.git
 cd LDU_factorization
 ```
 
